@@ -1,0 +1,9 @@
+*.dll
+*.h
+*.hpp
+*.o
+*.pdf
+*.lib
+*.f90
+*.for
+*.inc

@@ -1,0 +1,8 @@
+load "fftecplot"
+
+mesh th=square(200,200);
+fespace Vh(th,P1);
+Vh uh = sin(10*x)*cos(10*y);
+/*savetec("tec1.plt",th,uh[]);*/
+/*savetec("tec2.plt",th,uh[],"uhuh");*/ // write tecplot ascii file.
+savetecb("tec3.plt",th,uh[],"uhuh");  // write binary tecplot data file, it may have better proformence that ascii mode.
