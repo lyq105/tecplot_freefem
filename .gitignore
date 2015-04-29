@@ -7,3 +7,6 @@
 *.f90
 *.for
 *.inc
+*.plt
+*.log
+.tags
