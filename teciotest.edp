@@ -6,3 +6,12 @@ Vh uh = sin(10*x)*cos(10*y);
 /*savetec("tec1.plt",th,uh[]);*/
 /*savetec("tec2.plt",th,uh[],"uhuh");*/ // write tecplot ascii file.
 savetecb("tec3.plt",th,uh[],"uhuh");  // write binary tecplot data file, it may have better proformence that ascii mode.
+
+real r=1; border a(t=0,2*pi){ x=5*cos(t); y=5*sin(t);label=10;}
+r=0.3 ; border b(t=0,2*pi){ x=1 + cos(t); y=sin(t);label=1;}
+mesh th2 = buildmesh(a(500)+b(-300));
+fespace Vh2(th2,P1);
+Vh2 uh2 = sin(10*x)*cos(10*y);
+/*plot(th2,uh2);*/
+savetecb("hole.plt",th2,uh2[],"uhuh");  // write binary tecplot data file, it may have better proformence that ascii mode.
+
