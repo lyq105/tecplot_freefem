@@ -589,9 +589,9 @@ Init::Init(){
 	Global.Add("savetec","(",new OneOperator3_<double, string*, Mesh*,KN<double>*>(saveTecplot));
 	Global.Add("savetec","(",new OneOperator4_<double, string*, Mesh*,KN<double>*,string*>(savetec));
 	Global.Add("savetecb","(",new OneOperator4_<double, string*, Mesh*,KN<double>*,string*>(savetec_b));
-	Global.Add("savetec2b","(",new OneOperator5_<double, string*, Mesh*,KN<double>*,KN<double>*,string*>(savetec_b2));
-	Global.Add("savetec3b","(",new OneOperator6_<double, string*, Mesh*,KN<double>*,KN<double>*,KN<double>*,string*>(savetec_b3));
-	Global.Add("savetec4b","(",new OneOperator7_<double, string*, Mesh*,KN<double>*,KN<double>*,KN<double>*,KN<double>*,string*>(savetec_b4));
+	Global.Add("savetecb","(",new OneOperator5_<double, string*, Mesh*,KN<double>*,KN<double>*,string*>(savetec_b2));
+	Global.Add("savetecb","(",new OneOperator6_<double, string*, Mesh*,KN<double>*,KN<double>*,KN<double>*,string*>(savetec_b3));
+	Global.Add("savetecb","(",new OneOperator7_<double, string*, Mesh*,KN<double>*,KN<double>*,KN<double>*,KN<double>*,string*>(savetec_b4));
 	//Global.Add("CppModTemplate4","(",new OneOperator4_<double, KN<double>*, KN<double>*, KN<double>*, KN<double>*>(CppModTemplate4));
 	//Global.Add("CppModTemplate5","(",new OneOperator5_<double, KN<double>*, KN<double>*, KN<double>*, KN<double>*, KN<double>*>(CppModTemplate5));
 	//Global.Add("CppModTemplate6","(",new OneOperator6_<double, KN<double>*, KN<double>*, KN<double>*, KN<double>*, KN<double>*, KN<double>*>(CppModTemplate6));
