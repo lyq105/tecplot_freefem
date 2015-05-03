@@ -14,7 +14,7 @@ fespace Vh2(th2,P1);
 Vh2 uh2 = sin(10*x)*cos(10*y);
 Vh2 uh3 = sin(5*x)*cos(8*y);
 Vh2 uh4 = sin(2*x)*cos(8*y);
-Vh2 uh5 = sin(5*x)*cos(3*y);
+Vh2 uh5 = sin(5*x)*cos(3*y)*sin(x);
 /*plot(th2,uh2);*/
 savetecb("hole.plt",th2,uh2[],"uhuh");  // write binary tecplot data file, it may have better proformence that ascii mode.
 savetecb("hole2.plt",th2,uh2[],uh3[],"uh2 uh3");  // write binary tecplot data file, it may have better proformence that ascii mode.
