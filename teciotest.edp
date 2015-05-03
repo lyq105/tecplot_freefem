@@ -7,17 +7,33 @@ Vh uh = sin(10*x)*cos(10*y);
 /*savetec("tec2.plt",th,uh[],"uhuh");*/ // write tecplot ascii file.
 savetecb("tec3.plt",th,uh[],"uhuh");  // write binary tecplot data file, it may have better proformence that ascii mode.
 
-real r=1; border a(t=0,2*pi){ x=5*cos(t); y=5*sin(t);label=10;}
-r=0.3 ; border b(t=0,2*pi){ x=1 + cos(t); y=sin(t);label=1;}
-mesh th2 = buildmesh(a(500)+b(-300));
-fespace Vh2(th2,P1);
-Vh2 uh2 = sin(10*x)*cos(10*y);
-Vh2 uh3 = sin(5*x)*cos(8*y);
-Vh2 uh4 = sin(2*x)*cos(8*y);
-Vh2 uh5 = sin(5*x)*cos(3*y)*sin(x);
+/*real r=1; border a(t=0,2*pi){ x=5*cos(t); y=5*sin(t);label=10;}*/
+/*r=0.3 ; border b(t=0,2*pi){ x=1 + cos(t); y=sin(t);label=1;}*/
+/*mesh th2 = buildmesh(a(500)+b(-300));*/
+/*fespace Vh2(th2,P1);*/
+/*Vh2 uh2 = sin(10*x)*cos(10*y);*/
+/*Vh2 uh3 = sin(5*x)*cos(8*y);*/
+/*Vh2 uh4 = sin(2*x)*cos(8*y);*/
+/*Vh2 uh5 = sin(5*x)*cos(3*y)*sin(x);*/
 /*plot(th2,uh2);*/
-savetecb("hole.plt",th2,uh2[],"uhuh");  // write binary tecplot data file, it may have better proformence that ascii mode.
-savetecb("hole2.plt",th2,uh2[],uh3[],"uh2 uh3");  // write binary tecplot data file, it may have better proformence that ascii mode.
-savetecb("hole3.plt",th2,uh2[],uh3[],uh4[],"uh2 uh3 uh4");  // write binary tecplot data file, it may have better proformence that ascii mode.
-savetecb("hole4.plt",th2,uh2[],uh3[],uh4[],uh5[],"uh2 uh3 uh4 uh5");  // write binary tecplot data file, it may have better proformence that ascii mode.
+/*savetecb("hole.plt",th2,uh2[],"uhuh");  // write binary tecplot data file, it may have better proformence that ascii mode.*/
+/*savetecb("hole2.plt",th2,uh2[],uh3[],"uh2 uh3");  // write binary tecplot data file, it may have better proformence that ascii mode.*/
+/*savetecb("hole3.plt",th2,uh2[],uh3[],uh4[],"uh2 uh3 uh4");  // write binary tecplot data file, it may have better proformence that ascii mode.*/
+/*savetecb("hole4.plt",th2,uh2[],uh3[],uh4[],uh5[],"uh2 uh3 uh4 uh5");  // write binary tecplot data file, it may have better proformence that ascii mode.*/
 
+load "msh3"
+load "medit"
+int nn=20;
+mesh Th2=square(nn,nn);
+int[int] rup=[0,2], rdown=[0,1], rmid=[1,1,2,1,3,1,4,1];
+real zmin=0,zmax=1;
+mesh3 Th=buildlayers(Th2,nn, zbound=[zmin,zmax],reffacemid=rmid, reffaceup = rup, reffacelow = rdown);
+fespace Vh4(Th,P1);
+Vh4 ux = sin(10*x)*cos(2*y)*sin(7*z);
+ux=0;
+cout << ux.n;
+cout << "begin" <<endl;
+cout << Th.nv<< endl;
+cout << Th.nt << endl;
+/*medit("123",Th,wait=1);*/
+savetec("3d.plt",Th,ux[],"ux");
